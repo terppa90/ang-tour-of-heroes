@@ -20,7 +20,7 @@ export class HeroesComponent implements OnInit {
 
   heroes: Hero[];
 
-  selectedHero: Hero;
+  //selectedHero: Hero;
 
   /*
 heroService on olio, joka syntyy HeroService -luokasta
@@ -41,17 +41,18 @@ helposti vaihtaa toiseen.
     // sankarit haetaan aina kun komponentti syntyy muistiin
     this.getHeroes();
   }
-
+  /*
   onSelect(hero: Hero): void {
-    /*
-    Kun valitsemme sankarin, lähtee viesti messageservicen kautta
-    messagekomponenttiin, jossa viesti esitetään.
-    */
-    this.selectedHero = hero;
+    
+    //Kun valitsemme sankarin, lähtee viesti messageservicen kautta
+    //messagekomponenttiin, jossa viesti esitetään.
+    
+    //this.selectedHero = hero;
     this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
     // perinteinen tapa yhdistää merkkijono ja muuttuja:
     // 'HeroesComponent: Selected hero id='+hero.id
   }
+  */
   /*
 getHeroes hakee sankarit servicestä tähän komponenttiin. 
 HUOM! Toinen getHeroes, jota kutsutaan tämän metodin sisällä

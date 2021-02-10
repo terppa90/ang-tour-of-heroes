@@ -1,14 +1,11 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
   <!--*ngFor on Angularin sisäänrakennettu iteraatiodirektiivi -->
-  <!--class-binding tarkoittaa sitä, että CSS-tyyli sidotaan ehtoon, 
-  ja jos ehto on tosi, tyyli esitetään. [class.tyylinnimi]="ehto" -->
-  <li
-    *ngFor="let hero of heroes"
-    [class.selected]="hero === selectedHero"
-    (click)="onSelect(hero)"
-  >
-    <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{ hero.id }}">
+      <!--dynaaminen linkki ei tarvitse hakasulkuja, kun se on esitetty tällä tavalla-->
+      <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+    </a>
   </li>
 </ul>
 
@@ -16,4 +13,4 @@
 Tämä on property-binding, jolla tehdään tiedonvälitys äitikomponentista
 lapsikomponenttiin. Tämä on @Input lapsikomponenttiin. -->
 
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<!--<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->

@@ -1,5 +1,10 @@
 <!--1. Interpolation binding. 'bindataan luokan muuttuja templaattiin. '-->
 <h1>{{ title }}</h1>
-<app-heroes></app-heroes>
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+<!--Tähän tulevat reittitaulukossa olevat komponentit.-->
+<router-outlet></router-outlet>
 <!--Tämä komponentti esittää lokia sovelluksen tapahtumista. -->
 <app-messages></app-messages>
