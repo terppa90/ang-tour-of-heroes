@@ -48,7 +48,7 @@ helposti vaihtaa toiseen.
     //messagekomponenttiin, jossa viesti esitetään.
     
     //this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`); // tässä yhdistetään merkkijono ja muuttuja
     // perinteinen tapa yhdistää merkkijono ja muuttuja:
     // 'HeroesComponent: Selected hero id='+hero.id
   }
@@ -65,5 +65,21 @@ Tieto tulee reaktiivisesti.
 */
   getHeroes(): void {
     this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
+  }
+
+  add(name: string): void {
+    name = name.trim(); // ottaa pois tyhjät välilyönnit
+    if (!name) {
+      return;
+    }
+    this.heroService.addHero({ name } as Hero).subscribe((hero) => {
+      // tyypinmuunnos Hero-tyyppiseksi ^
+      this.heroes.push(hero); // lisätään sankari heti käyttöliittymään
+    });
+  }
+
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter((h) => h !== hero);
+    this.heroService.deleteHero(hero).subscribe();
   }
 }

@@ -31,4 +31,8 @@ export class HeroDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+  // päivittää sankarin ja menee suoraan listanäkymään, jossa päivitetty sankari näkyy
+  save(): void {
+    this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
+  }
 }
